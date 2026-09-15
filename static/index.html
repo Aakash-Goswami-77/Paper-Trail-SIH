@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novus University - Credential Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-[#0F172A]">
+
+    <!-- Top Navigation Header -->
+    <header class="bg-white border-b border-slate-200 px-6 py-3 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-slate-900 rounded flex items-center justify-center text-white font-bold text-xs">NU</div>
+            <div>
+                <h1 class="font-bold text-sm leading-none">Novus University</h1>
+                <span class="text-xs text-slate-500" id="portal-subtitle">Registrar Operations Portal</span>
+            </div>
+        </div>
+        <div class="flex items-center space-x-4">
+            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+                <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-1.5"></span>
+                System Status: Operational
+            </span>
+            <button id="view-toggle-btn" onclick="toggleMainView()" class="text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg border border-slate-300 transition">
+                Switch to Verifier Portal →
+            </button>
+        </div>
+    </header>
+
+    <!-- ================= VIEW 1: REGISTRAR PORTAL ================= -->
+    <div id="view-registrar" class="flex min-h-[calc(100vh-57px)]">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white border-r border-slate-200 p-4 flex flex-col justify-between">
+            <nav class="space-y-1">
+                <a href="#" class="flex items-center space-x-3 px-3 py-2 bg-slate-100 text-slate-900 rounded-lg font-medium text-sm">
+                    <span>Overview</span>
+                </a>
+                <a href="#" class="flex items-center justify-between px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-lg text-sm">
+                    <span>Inbox</span>
+                    <span class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold">16</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-lg text-sm">
+                    <span>Batch Studio</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-lg text-sm">
+                    <span>Registry</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-lg text-sm">
+                    <span>Audit Log</span>
+                </a>
+            </nav>
+            <div class="text-xs text-slate-400 border-t pt-3">Novus v2.4.0 • Enterprise</div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 space-y-6">
+            <div>
+                <h2 class="text-xl font-bold">Good morning, Dr. Jenkins</h2>
+                <p class="text-xs text-slate-500">Here are your priority actions and pending items.</p>
+            </div>
+
+            <!-- Urgent Action Cards -->
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex justify-between items-center">
+                    <div>
+                        <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">Requires Immediate Action</span>
+                        <h3 class="font-bold text-base mt-1">Batch #2026-B (48 Students) Ready to Issue</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Cryptographic proofs pre-computed. Pending sign-off.</p>
+                    </div>
+                    <button class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition">Sign & Anchor Batch (48)</button>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex justify-between items-center">
+                    <div>
+                        <span class="text-xs font-semibold text-red-600 uppercase tracking-wider">Pending Review</span>
+                        <h3 class="font-bold text-base mt-1">14 Verification Appeals Flagged</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">2 credentials flagged for image tamper mismatch.</p>
+                    </div>
+                    <button class="border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-semibold px-4 py-2.5 rounded-lg transition">Review Flagged Queue (14)</button>
+                </div>
+            </div>
+
+            <!-- Table Workspace -->
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="border-b border-slate-200 px-6 py-3 bg-slate-50/50 flex space-x-6 text-xs font-semibold text-slate-500">
+                    <span class="text-slate-900 border-b-2 border-slate-900 py-1">Needs Action (16)</span>
+                    <span class="py-1 cursor-pointer hover:text-slate-900">Recently Anchored</span>
+                    <span class="py-1 cursor-pointer hover:text-slate-900">Revoked & Flagged (3)</span>
+                </div>
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase font-semibold">
+                        <tr>
+                            <th class="p-4">Student Name & Roll</th>
+                            <th class="p-4">Degree Program</th>
+                            <th class="p-4">Issue Type</th>
+                            <th class="p-4">Status</th>
+                            <th class="p-4 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr class="hover:bg-slate-50/80">
+                            <td class="p-4 font-semibold">Diya Patel <span class="block text-[10px] text-slate-400 font-normal">NU2021002</span></td>
+                            <td class="p-4 text-slate-600">B.Tech Computer Science</td>
+                            <td class="p-4 text-slate-600">Batch #2026-B</td>
+                            <td class="p-4"><span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Pending Approval</span></td>
+                            <td class="p-4 text-right"><button onclick="openDrawer()" class="bg-slate-900 text-white px-3 py-1.5 rounded-md font-medium text-[11px]">Approve & Sign</button></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/80">
+                            <td class="p-4 font-semibold">Arjun Singh <span class="block text-[10px] text-slate-400 font-normal">NU2021005</span></td>
+                            <td class="p-4 text-slate-600">B.Tech Computer Science</td>
+                            <td class="p-4 text-slate-600">Batch #2026-A</td>
+                            <td class="p-4"><span class="bg-red-100 text-red-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Flagged Mismatch</span></td>
+                            <td class="p-4 text-right"><button onclick="showSimulatedTamper()" class="text-red-600 hover:bg-red-50 px-3 py-1.5 rounded-md font-semibold text-[11px]">Investigate Tamper</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <!-- Slide-Over Inspection Drawer -->
+        <div id="drawer" class="hidden fixed inset-y-0 right-0 w-96 bg-white border-l border-slate-200 shadow-2xl p-6 z-50 flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-center border-b pb-4">
+                    <h3 class="font-bold text-sm">Credential Pre-Issuance Drawer</h3>
+                    <button onclick="closeDrawer()" class="text-slate-400 hover:text-slate-600">✕</button>
+                </div>
+                <div class="mt-4 space-y-4 text-xs">
+                    <div class="p-3 bg-slate-50 rounded-lg">
+                        <div class="font-bold text-sm">Diya Patel</div>
+                        <div class="text-slate-500">NU2021002 • B.Tech Computer Science</div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="font-semibold text-slate-700">Pre-Issuance Checklist</div>
+                        <div class="flex items-center text-emerald-600 font-medium">✓ Merkle Leaf Generated</div>
+                        <div class="flex items-center text-emerald-600 font-medium">✓ Fragile DWT Watermark Embedded</div>
+                        <div class="flex items-center text-amber-600 font-medium">⚠ Awaiting Registrar Digital Sign-off</div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="closeDrawer()" class="w-full bg-slate-900 text-white font-semibold py-2.5 rounded-lg text-xs">Confirm & Anchor Credential</button>
+        </div>
+    </div>
+
+    <!-- ================= PUBLIC VERIFIER PORTAL (VIEWS 2 & 3) ================= -->
+    <div id="view-verifier" class="hidden max-w-4xl mx-auto p-8 space-y-6">
+        
+        <!-- Dropzone Section -->
+        <div class="bg-white p-6 rounded-xl border border-dashed border-slate-300 text-center space-y-3">
+            <div class="text-xs text-slate-500 font-medium">Drag & drop candidate certificate (PNG / PDF) or select simulation</div>
+            <div class="flex justify-center space-x-3">
+                <input type="file" id="file-input" class="hidden" onchange="handleFileUpload(event)">
+                <button onclick="document.getElementById('file-input').click()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-lg text-xs border border-slate-300">Upload File</button>
+                <button onclick="simulateAuthentic()" class="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-semibold px-4 py-2 rounded-lg text-xs border border-emerald-200">Simulate Valid Certificate</button>
+                <button onclick="simulateTampered()" class="bg-red-50 text-red-700 hover:bg-red-100 font-semibold px-4 py-2 rounded-lg text-xs border border-red-200">Simulate Tampered Certificate</button>
+            </div>
+        </div>
+
+        <!-- Verification Results Container -->
+        <div id="result-container" class="space-y-6">
+            <!-- Dynamic Hero Banner -->
+            <div id="hero-banner" class="p-5 rounded-xl text-white flex items-center space-x-4 bg-emerald-600">
+                <div class="text-2xl font-bold" id="hero-title">VERIFIED AUTHENTIC</div>
+            </div>
+
+            <!-- Candidate Record -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 space-y-4">
+                <h3 class="font-bold text-sm border-b pb-2">Candidate Record</h3>
+                <div class="grid grid-cols-2 gap-4 text-xs">
+                    <div><span class="text-slate-400 block">Candidate Name</span> <span id="cand-name" class="font-semibold text-sm">Diya Patel</span></div>
+                    <div><span class="text-slate-400 block">Roll Number</span> <span id="cand-roll" class="font-semibold text-sm">NU2021002</span></div>
+                    <div><span class="text-slate-400 block">Program</span> <span id="cand-program" class="font-semibold text-sm">Bachelor of Technology in CS</span></div>
+                    <div><span class="text-slate-400 block">Verification Status</span> <span id="cand-status" class="inline-block mt-0.5 bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full text-[10px]">Active & Unrevoked</span></div>
+                </div>
+            </div>
+
+            <!-- Collapsible Audit Log -->
+            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                <button onclick="toggleAuditLog()" class="w-full px-6 py-4 flex justify-between items-center text-xs font-bold text-slate-700 bg-slate-50/50 hover:bg-slate-50">
+                    <span>🛡️ Security Audit Log (<span id="audit-summary">5/5 Passed</span>)</span>
+                    <span id="audit-arrow">▼</span>
+                </button>
+                <div id="audit-details" class="p-6 border-t border-slate-200 space-y-3 text-xs hidden">
+                    <div id="layer-list" class="space-y-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS State Controller -->
+    <script>
+        let currentMainView = 'registrar';
+
+        function toggleMainView() {
+            if (currentMainView === 'registrar') {
+                document.getElementById('view-registrar').classList.add('hidden');
+                document.getElementById('view-verifier').classList.remove('hidden');
+                document.getElementById('portal-subtitle').innerText = 'Public Verification Engine';
+                document.getElementById('view-toggle-btn').innerText = '← Switch to Registrar View';
+                currentMainView = 'verifier';
+                simulateAuthentic();
+            } else {
+                document.getElementById('view-verifier').classList.add('hidden');
+                document.getElementById('view-registrar').classList.remove('hidden');
+                document.getElementById('portal-subtitle').innerText = 'Registrar Operations Portal';
+                document.getElementById('view-toggle-btn').innerText = 'Switch to Verifier Portal →';
+                currentMainView = 'registrar';
+            }
+        }
+
+        function openDrawer() { document.getElementById('drawer').classList.remove('hidden'); }
+        function closeDrawer() { document.getElementById('drawer').classList.add('hidden'); }
+
+        function showSimulatedTamper() {
+            if (currentMainView !== 'verifier') toggleMainView();
+            simulateTampered();
+        }
+
+        function toggleAuditLog() {
+            const details = document.getElementById('audit-details');
+            details.classList.toggle('hidden');
+        }
+
+        async function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            const res = await fetch('/api/verify-certificate', { method: 'POST', body: formData });
+            const data = await res.json();
+            renderVerifierResult(data);
+        }
+
+        function simulateAuthentic() {
+            renderVerifierResult({
+                status: "VERIFIED",
+                candidate: { name: "Diya Patel", roll: "NU2021002", program: "B.Tech Computer Science", status: "Active & Unrevoked" },
+                layers: {
+                    layer1: { name: "1. On-Chain Ledger Check", pass: true, details: "Anchored on Polygon Block #481920" },
+                    layer2: { name: "2. Cryptographic Merkle Proof", pass: true, details: "Merkle root matches issuing signature" },
+                    layer3: { name: "3. W3C Revocation Check", pass: true, details: "Registry Bit #42 indicates valid status" },
+                    layer4: { name: "4. Digital Anti-Tamper Watermark", pass: true, details: "DWT fragile watermark signal intact." },
+                    layer5: { name: "5. Physical Copy Pattern (CDP)", pass: true, details: "Pattern matches original template" }
+                }
+            });
+        }
+
+        function simulateTampered() {
+            renderVerifierResult({
+                status: "FAILED",
+                candidate: { name: "Arjun Singh", roll: "NU2021005", program: "B.Tech Computer Science", status: "TAMPER DETECTED / INVALID" },
+                layers: {
+                    layer1: { name: "1. On-Chain Ledger Check", pass: true, details: "Anchored on Polygon Block #481920" },
+                    layer2: { name: "2. Cryptographic Merkle Proof", pass: true, details: "Merkle root matches issuing signature" },
+                    layer3: { name: "3. W3C Revocation Check", pass: true, details: "Registry Bit #42 indicates valid status" },
+                    layer4: { name: "4. Digital Anti-Tamper Watermark", pass: false, details: "Pixel manipulation detected in transcript region. DWT watermark destroyed." },
+                    layer5: { name: "5. Physical Copy Pattern (CDP)", pass: true, details: "Pattern matches original template" }
+                }
+            });
+            document.getElementById('audit-details').classList.remove('hidden');
+        }
+
+        function renderVerifierResult(data) {
+            const isVerified = data.status === "VERIFIED";
+            const banner = document.getElementById('hero-banner');
+            banner.className = isVerified ? 'p-5 rounded-xl text-white bg-emerald-600 font-bold' : 'p-5 rounded-xl text-white bg-red-600 font-bold';
+            document.getElementById('hero-title').innerText = isVerified ? 'VERIFIED AUTHENTIC & VALID' : 'VERIFICATION FAILED: INVALID CREDENTIAL';
+
+            document.getElementById('cand-name').innerText = data.candidate.name;
+            document.getElementById('cand-roll').innerText = data.candidate.roll;
+            document.getElementById('cand-program').innerText = data.candidate.program;
+            
+            const statusBadge = document.getElementById('cand-status');
+            statusBadge.innerText = data.candidate.status;
+            statusBadge.className = isVerified ? 'inline-block bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full text-[10px]' : 'inline-block bg-red-100 text-red-800 font-bold px-2 py-0.5 rounded-full text-[10px]';
+
+            const layerList = document.getElementById('layer-list');
+            layerList.innerHTML = '';
+            let passCount = 0;
+
+            Object.values(data.layers).forEach(layer => {
+                if (layer.pass) passCount++;
+                const item = document.createElement('div');
+                item.className = layer.pass ? 'p-2.5 bg-slate-50 rounded flex justify-between items-center' : 'p-2.5 bg-red-50 border border-red-200 rounded flex justify-between items-center';
+                item.innerHTML = `
+                    <div>
+                        <div class="font-bold text-xs ${layer.pass ? 'text-slate-800' : 'text-red-900'}">${layer.name}</div>
+                        <div class="text-[11px] ${layer.pass ? 'text-slate-500' : 'text-red-700'}">${layer.details}</div>
+                    </div>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${layer.pass ? 'bg-emerald-100 text-emerald-800' : 'bg-red-600 text-white'}">${layer.pass ? 'PASSED' : 'FAILED'}</span>
+                `;
+                layerList.appendChild(item);
+            });
+
+            document.getElementById('audit-summary').innerText = `${passCount}/5 Passed`;
+        }
+    </script>
+</body>
+</html>

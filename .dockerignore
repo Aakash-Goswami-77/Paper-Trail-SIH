@@ -1,0 +1,12 @@
+**/venv
+**/.venv
+**/__pycache__
+**/.git
+**/.cache
+**/temp_output
+*.png
+*.jpg
+*.jpeg
+*.tar
+*.gz
+*.zip

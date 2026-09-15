@@ -1,0 +1,42 @@
+{
+  "contractName": "CertificateAnchorRegistry",
+  "abi": [
+    {
+      "inputs": [
+        { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32" },
+        { "internalType": "string", "name": "revocationUri", "type": "string" }
+      ],
+      "name": "anchorBatch",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32" },
+        { "internalType": "bytes32[]", "name": "proof", "type": "bytes32[]" },
+        { "internalType": "bytes32", "name": "leaf", "type": "bytes32" }
+      ],
+      "name": "verifyProof",
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32" },
+        { "internalType": "uint256", "name": "index", "type": "uint256" }
+      ],
+      "name": "isRevoked",
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "networks": {
+    "80002": {
+      "name": "Polygon Amoy Testnet",
+      "address": "0xMockContractRegistryAddress0000000000000000000"
+    }
+  }
+}
